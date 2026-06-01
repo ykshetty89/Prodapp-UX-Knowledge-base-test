@@ -1,13 +1,25 @@
 # Prodapp UX — Knowledge Base App
 
-## Deploy to Vercel (1 minute)
+React app connecting to the team GitHub repo as a live KB store.
 
-1. Visit https://vercel.com/new
-2. Import repo: ykshetty89/Prodapp-UX-Knowledge-base-test
-3. Set environment variable: VITE_GITHUB_PAT = your GitHub token
-4. Deploy
+## Deploy via GitHub Pages (free, no Vercel needed)
 
-You get a live URL like: https://prodapp-kb.vercel.app
+### One-time setup (2 minutes)
+
+1. Go to repo Settings → Pages
+2. Under "Source", select **GitHub Actions**
+3. Go to repo Settings → Secrets and variables → Actions
+4. Click **New repository secret**:
+   - Name: `VITE_GITHUB_PAT`
+   - Value: your GitHub Personal Access Token
+5. Done — every push to `app/` auto-deploys
+
+### Your live URL
+
+After the first deploy completes (~2 min), the app is live at:
+**https://ykshetty89.github.io/Prodapp-UX-Knowledge-base-test/**
+
+The Actions tab shows deployment status.
 
 ## Run locally
 
