@@ -1,35 +1,51 @@
 # Prodapp UX — Knowledge Base
 
-Research and domain knowledge captured by the Prodapp UX design team.
+Research and domain knowledge captured by the Prodapp UX design team for the Posten/Bring logistics platform.
 
-## How this works
-- Each file represents a logistics domain
-- Entries are added automatically when a designer confirms a capture in Claude
-- Claude reads from these files when answering KB questions
+## Live URLs
 
-## Domains
+- 📚 **Browse the KB:** https://ykshetty89.github.io/Prodapp-UX-Knowledge-base-test/
+- 💬 **Ask the KB:** Prodapp UX Claude Project (team members only)
 
-| Domain | File | Description |
+## How entries are captured
+
+Entries are created by the team Claude assistant when a designer shares research. Each entry is event-based, not document-based — a single research document may produce multiple entries across multiple domains.
+
+## Domain definitions
+
+Each domain corresponds to a distinct part of the parcel journey.
+
+| Domain | What it means | Signals |
 |---|---|---|
-| Hub operations | [hub-operations.md](hub-operations.md) | Sorting, preloading, worker workflows |
-| Sorting | [sorting.md](sorting.md) | Sort plans, belt logic, parcel routing |
-| Pickup | [pickup.md](pickup.md) | Driver pickup flows, depot interactions |
-| Loading | [loading.md](loading.md) | Vehicle loading, scan flows, capacity |
-| Delivery | [delivery.md](delivery.md) | Last-mile, POD, exceptions, re-delivery |
-| Dispatcher | [dispatcher.md](dispatcher.md) | Exception handling, routing, communication |
-| Warehouse | [warehouse.md](warehouse.md) | Inventory, putaway, scan, tablet UX |
-| Driver | [driver.md](driver.md) | Mobile UX, field conditions, navigation |
-| Tracking | [tracking.md](tracking.md) | Real-time visibility, ETA, carrier updates |
+| 📦 **Hub operations** | Activities inside a sorting terminal, hub, or distribution point | sorted, scanned, rejected, rerouted, terminal, DIP, hub |
+| 🚚 **Pickup** | Collection of parcels from a sender | collected, picked up, pickup order, sender location |
+| 📥 **Loading** | Placing parcels into a vehicle for transport | loaded, scan-to-load, assigned to vehicle, truck |
+| 📬 **Delivery** | Final step where parcels reach the customer | delivered, delivery attempt, recipient, locker, Pakkeboks |
+| 🧭 **Dispatcher** | Planning and control of logistics operations | assigned, planned route, reassigned, dispatch |
+| 🏬 **Warehouse** | Storage and inventory handling between movements | stored, inventory, buffer, retrieved, warehouse |
+| 👷 **Driver** | Actions and behaviours of the driver | driver, courier, reported, could not, confirmed |
+| 📍 **Tracking** | Visibility of parcel status across the journey | status updated, in transit, out for delivery, tracking |
+| 🔀 **Sorting** | Sort plans, belt logic, parcel routing, scan-sort flows | sort plan, belt, scan-sort |
+
+## Classification rules
+
+1. **Multiple domains allowed** — an event involving more than one part of the journey gets all relevant domains.
+2. **Follow the flow:** Pickup → Hub → Loading → Delivery → Tracking
+3. **Be precise, not excessive** — only assign domains clearly supported by the content.
+4. **Handle cause and effect** — if a problem originates in one domain and impacts another, both are relevant.
+5. **Normalise terminology:** Terminal/Depot/Sorting centre → Hub operations · Courier → Driver · Status update → Tracking
 
 ## Entry format
-Each entry follows this structure:
 
+```
 ### [Title]
+- **Domains:** Domain 1, Domain 2
 - **Date:** DD Mon YYYY
 - **Author:** Name
-- **Source:** chat / image / file / Claude Cowork session
+- **Source:** chat / file / PDF / image / Claude Cowork session
 - **Tags:** #tag1 #tag2 #tag3
 
-[2-3 sentence insight — synthesised from what the designer shared]
+[2-3 sentence synthesis from the source — no padding, no assumptions]
 
 ---
+```
